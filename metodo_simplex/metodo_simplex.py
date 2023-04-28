@@ -13,3 +13,24 @@ coeficientes_separados = [float(coeficientes[i]) for i in range(len(coeficientes
 # Imprimimos los resultados
 print("Los coeficientes son:", coeficientes_separados)
 print("Las variables son:", variables)
+
+# Solicitamos el número de restricciones
+num_restricciones = int(input("Ingresa el número de restricciones: "))
+
+# Creamos una lista vacía para almacenar las restricciones
+restricciones = []
+
+# Solicitamos cada restricción y aplicamos expresiones regulares para extraer coeficientes y variables
+for i in range(num_restricciones):
+    restriccion = input("Ingresa la restricción número {}: ".format(i+1))
+    coef_restriccion = re.findall(r'[-]?\d+', restriccion)
+    var_restriccion = re.findall(r'x\d+', restriccion)
+    restricciones.append((list(map(int, coef_restriccion)), var_restriccion))
+
+# Imprimimos las restricciones
+print("Las restricciones son:")
+for restriccion in restricciones:
+    print(restriccion)
+
+
+
