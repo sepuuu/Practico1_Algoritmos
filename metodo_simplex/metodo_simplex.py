@@ -24,13 +24,12 @@ restricciones = []
 for i in range(num_restricciones):
     restriccion = input("Ingresa la restricción número {}: ".format(i+1))
     coef_restriccion = re.findall(r'[-]?\d+', restriccion)
+    coef_restriccion_separados = [float(coef_restriccion[i]) for i in range(len(coef_restriccion)) if i % 2 == 0]
     var_restriccion = re.findall(r'x\d+', restriccion)
-    restricciones.append((list(map(int, coef_restriccion)), var_restriccion))
+    restricciones.append((coef_restriccion_separados, var_restriccion))
 
 # Imprimimos las restricciones
 print("Las restricciones son:")
 for restriccion in restricciones:
     print(restriccion)
-
-
 
