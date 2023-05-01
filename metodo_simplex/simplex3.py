@@ -50,6 +50,7 @@ def maximizar(a):
                 a[i,1:] = aa
                 print("temp_numero_c_pivote", temp_numero_c_pivote)
                 print("fila mod:",a[i,1:])                 
+        a[n_fila_pivote,0] = a[0,n_columna_pivote] 
         print("arreglo final",a)
         
         #hacer el ciclo while
