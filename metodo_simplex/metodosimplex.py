@@ -1,5 +1,6 @@
 import numpy as np
-
+import parser
+from tabulate import tabulate
 def maximizar(a):
     terminar=0
     while terminar < 1:
@@ -51,7 +52,7 @@ def maximizar(a):
                 print("temp_numero_c_pivote", temp_numero_c_pivote)
                 print("fila mod:",a[i,1:])                 
         a[n_fila_pivote,0] = a[0,n_columna_pivote] 
-        print("arreglo final",a)
+        print("TABLA FINAL",tabulate(a))
         
         #hacer el ciclo while
         a = np.array(a)
@@ -68,10 +69,5 @@ def maximizar(a):
 #h1	0	1	0	1	0	0	4	
 #h2	0	0	2	0	1	0	12	
 #h3	0	3	2	0	0	1	18	
-a = np.array([["vars","z","x1","x2","h1","h2","h3","total"],
-              ["z", 1, -30000, -50000, 0, 0, 0, 0],
-              ["h1", 0,     1,      0, 1, 0, 0, 4],
-              ["h2", 0,     0,      2, 0, 1, 0, 12],
-              ["h3", 0,     3,      2, 0, 0, 1, 18]])
-
+a = parser.parser()
 maximizar(a)
