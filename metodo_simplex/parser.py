@@ -7,17 +7,17 @@ def parser():
     # Obtener variables básicas de la función objetivo
     f_objetivo = input("Ingresa la función objetivo: ")
     f_obj = "1z + " + f_objetivo
-    coef_var_list1 = re.findall("([+-]?\d*)?([a-zA-Z]\d*)", f_obj)
+    coef_var_list1 = re.findall("([+-]?(?:\d+(?:\.\d*)?|\.\d+))(?:([a-zA-Z]\d*))?", f_obj)
 
     coef_var_bas = []
     for i in coef_var_list1:
         coef_var_bas.append(i[0]) #Captura solo coeficientes
     coef_num = []
     for i in range(len(coef_var_bas)): #convertir a numeros la lista de coef_numericos
-        coef_num.append(int(coef_var_bas[i]))
+        coef_num.append(float(coef_var_bas[i]))
 
-    coef_num = np.array(coef_num) #arreglo variables basicas
-    coef_numericos = np.array(coef_num) #convirtiendo a array para multiplicar por  -1
+    coef_num = np.array(coef_num) #arreglo variables basicas(convierto a numpy array)
+    coef_numericos = np.array(coef_num) #convirtiendo a array para multiplicar por  -1 (lo guardo en un arreglo para que sea como una matriz)
 
     #Creamos listas para tabular
     filaz = [] #filaz
@@ -54,7 +54,7 @@ def parser():
             break
 
         # Encontrar todos los valores de la inecuación
-        coef_var_list = re.findall("([+-]?\d*)?([a-zA-Z]\d*)", inecuacion)
+        coef_var_list = re.findall("([+-]?(?:\d+(?:\.\d*)?|\.\d+))(?:([a-zA-Z]\d*))?", inecuacion)
         # Crear lista de coeficientes de la restricción
         coeficientes_restriccion = [0] * len(variables_basicas)
         exp_ld = re.compile("[<>]=?\s*([-+]?\d*\.?\d+)")
@@ -76,7 +76,7 @@ def parser():
 
     ld = []
     for i in range(len(ladod)): #convertir a numeros la lista de coef_numericos
-        ld.append(int(ladod[i]))
+        ld.append(float(ladod[i]))
     ld = np.array(ld)
 
 
