@@ -1,6 +1,9 @@
 import numpy as np
 import parser
 from tabulate import tabulate
+
+a = parser.parser()
+
 def maximizar(a):
     terminar=0
     while terminar < 1:
@@ -69,10 +72,9 @@ def maximizar(a):
 #h1	0	1	0	1	0	0	4	
 #h2	0	0	2	0	1	0	12	
 #h3	0	3	2	0	0	1	18	
-#a = parser.parser()
-a = np.array([["vars","z","x1","x2","h1","h2","h3","total"],
-              ["z", 1, -86, -96, 0, 0, 0, -426],
-              ["h1", 0,     60,      60, -1, 0, 0, 300],
-              ["h2", 0,     12,      6, 0, -1, 0, 36],
-              ["h3", 0,     10,      30, 0, 0, -1, 90]])
+#a = np.array([["vars","z","x1","x2","h1","h2","h3","total"],
+#              ["z", 1, -86, -96, 0, 0, 0, -426],
+#              ["h1", 0,     60,      60, -1, 0, 0, 300],
+#              ["h2", 0,     12,      6, 0, -1, 0, 36],
+#              ["h3", 0,     10,      30, 0, 0, -1, 90]])
 maximizar(a)

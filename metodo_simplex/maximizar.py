@@ -80,5 +80,5 @@ def maximizar(a):
 
 
 
-#a = parser.parser()
-#maximizar(a)
+a = parser.parser()
+maximizar(a)

@@ -1,9 +1,7 @@
 import re
 import numpy as np
-from tabulate import tabulate
 
 def parser():
-
     # Obtener variables básicas de la función objetivo
     f_objetivo = input("Ingresa la función objetivo: ")
     f_obj = "1z + " + f_objetivo
@@ -38,9 +36,8 @@ def parser():
 
     restricciones = []
     ladod = []
-
-
-    for i in range(1): #añadiendo 0 al lado derecho antes de añadir los lados derechos de las restricciones(0 por el lado derecho de la Z)
+    
+    for i in range(1):
          if i == 0:
              ladod.append(0)
          else:
@@ -112,11 +109,8 @@ def parser():
     z = np.array(z)
 
     header = np.concatenate((vb, variables_basicas, variables_holgura, lado_derecho)) #lado der
-
     columna = np.concatenate((z, variables_holgura)) #lado izq
-
     TABLA = np.concatenate((np.array([columna]).T, TABLA), axis=1)
-
     TABLA = np.concatenate(([header], TABLA))
 
     return TABLA
